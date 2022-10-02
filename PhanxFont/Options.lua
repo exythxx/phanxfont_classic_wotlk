@@ -86,6 +86,29 @@ Options:SetScript("OnShow", function(self)
 
 	----------
 
+	local HPScale = LibStub("PhanxConfig-Slider"):New(self, "HP Scale", nil, 0.5, 2, 0.05, true)
+	HPScale:SetPoint("TOPLEFT", Scale, "BOTTOMLEFT", 0, -16)
+	HPScale.minText:Hide()
+	HPScale.maxText:Hide()
+	HPScale:SetWidth(100)
+
+	function HPScale:OnValueChanged(value)
+		PhanxFontDB.hpscale = value
+	end
+	
+	----------
+
+	local NameScale = LibStub("PhanxConfig-Slider"):New(self, "Name Scale", nil, 0.5, 2, 0.05, true)
+	NameScale:SetPoint("TOPRIGHT", Scale, "BOTTOMRIGHT", 0, -16)
+	NameScale.minText:Hide()
+	NameScale.maxText:Hide()
+	NameScale:SetWidth(100)
+
+	function NameScale:OnValueChanged(value)
+		PhanxFontDB.namescale = value
+	end
+	----------
+
 	local ReloadButton = CreateFrame("Button", "$parentReloadButton", self, "UIPanelButtonTemplate")
 	ReloadButton:SetPoint("BOTTOMLEFT", 16, 16)
 	ReloadButton:SetSize(96, 22)
@@ -101,8 +124,8 @@ Options:SetScript("OnShow", function(self)
 	----------
 
 	SampleText = self:CreateFontString(nil, "ARTWORK", "GameFontHighlight")
-	SampleText:SetPoint("TOPLEFT", BoldFont, "BOTTOMLEFT", 0, -16)
-	SampleText:SetPoint("TOPRIGHT", BoldFont, "BOTTOMRIGHT", 0, -16)
+	SampleText:SetPoint("TOPLEFT", BoldFont, "BOTTOMLEFT", 0, -150)
+	SampleText:SetPoint("TOPRIGHT", BoldFont, "BOTTOMRIGHT", 0, -150)
 	SampleText:SetPoint("BOTTOMLEFT", ReloadButton, "TOPLEFT", 0, 16)
 	SampleText:SetJustifyH("LEFT")
 	SampleText:SetText("The quick brown fox jumps over the lazy dog.\n\nÁá Ää Éé Íí Ññ Óó Öö ß Úú Üü\n¡! ¿? # $ € % & ° – —\n“q” ‘q’ „q“ ‚q‘ «q» ‹q›\n^ ● ")
@@ -221,6 +244,8 @@ Options:SetScript("OnShow", function(self)
 		NormalFont:SetValue(PhanxFontDB.normal)
 		BoldFont:SetValue(PhanxFontDB.bold)
 		Scale:SetValue(PhanxFontDB.scale)
+		HPScale:SetValue(PhanxFontDB.hpscale)
+		NameScale:SetValue(PhanxFontDB.namescale)
 		UpdatePreviews(width)
 	end
 

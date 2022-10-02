@@ -15,6 +15,8 @@ PhanxFontDB = {
 	normal = "Lato",
 	bold   = "Lato Black",
 	scale  = 1.3,
+	hpscale = 1,
+	namescale = 1,
 }
 
 local NORMAL       = [[Interface\AddOns\PhanxMedia\font\Lato.ttf]]
@@ -137,7 +139,63 @@ function Addon:SetFonts(event, addon)
 	SetFont(SubZoneTextFont,        BOLD, 27, "THICKOUTLINE") -- inherits SystemFont_OutlineThick_Huge4
 	SetFont(PVPInfoTextFont,      NORMAL, 22, "THICKOUTLINE") -- inherits SystemFont_OutlineThick_Huge2
 	]]
+		-- Unit HealthBarText
+		for _, FrameBarText in pairs({
+			PlayerFrameHealthBarText,
+			PlayerFrameHealthBarTextLeft,
+			PlayerFrameHealthBarTextRight,
+			PlayerFrameManaBarText,
+			PlayerFrameManaBarTextLeft,
+			PlayerFrameManaBarTextRight,
+			TargetFrameTextureFrame.HealthBarText,
+			TargetFrameTextureFrame.HealthBarTextLeft,
+			TargetFrameTextureFrame.HealthBarTextRight,
+			TargetFrameTextureFrame.ManaBarTextLeft,
+			TargetFrameTextureFrame.ManaBarTextRight,
+			TargetFrameTextureFrame.ManaBarText,
+			FocusFrameTextureFrame.HealthBarTextLeft,
+			FocusFrameTextureFrame.HealthBarTextRight,
+			FocusFrameTextureFrame.HealthBarText,
+			FocusFrameTextureFrame.ManaBarTextLeft,
+			FocusFrameTextureFrame.ManaBarTextRight,
+			FocusFrameTextureFrame.ManaBarText,
+			PetFrameHealthBarTextLeft,
+			PetFrameHealthBarTextRight,
+			PetFrameHealthBarText,
+			PetFrameManaBarTextLeft,
+			PetFrameManaBarTextRight,
+			PetFrameManaBarText,
+		}) do
+				FrameBarText:SetFont(BOLD, 12 * PhanxFontDB.hpscale, "THINOUTLINE")
+				FrameBarText:SetShadowOffset(0, -0)
+		end
+			PlayerFrame.name:SetFont(BOLD, 12 * PhanxFontDB.namescale, "NONE")
+			TargetFrame.name:SetFont(BOLD, 12 * PhanxFontDB.namescale, "NONE")
+			FocusFrame.name:SetFont(BOLD, 12 * PhanxFontDB.namescale, "NONE")
+		-- Party Unit HealthBarText
+		for _, PartyBarText in pairs({
+			PartyMemberFrame1HealthBarText,
+			PartyMemberFrame1ManaBarText,
+			PartyMemberFrame2HealthBarText,
+			PartyMemberFrame2ManaBarText,
+			PartyMemberFrame3HealthBarText,
+			PartyMemberFrame3ManaBarText,
+			PartyMemberFrame4HealthBarText,
+			PartyMemberFrame4ManaBarText,
+		}) do
+				PartyBarText:SetFont(BOLD, 12 * PhanxFontDB.hpscale - 2, "THINOUTLINE")
+				PartyBarText:SetShadowOffset(0, -0)
+		end
 
+		-- Unit LevelText
+		for _, LevelText in pairs({
+			PlayerLevelText,
+			TargetFrameTextureFrameLevelText,
+			FocusFrameTextureFrameLevelText,
+		}) do
+				LevelText:SetFont(BOLD, 12 + 1)
+				LevelText:SetShadowOffset(0, -0)
+		end
 	-- Chat frames
 	local _, size = ChatFrame1:GetFont()
 	FCF_SetChatWindowFontSize(nil, ChatFrame1, size)
