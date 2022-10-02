@@ -1,0 +1,27 @@
+## Interface: 80000
+## Version: 80000.0
+
+## Title: PhanxFont
+## Notes: Simple font replacement.
+## Notes-deDE: Einfacher Schriftenersatz.
+## Notes-esES: Sustitución de fuentes simple.
+## Notes-esMX: Sustitución de fuentes simple.
+
+## Author: Phanx
+## X-Email: addons@phanx.net
+## X-License: zlib/libpng License
+## X-Website: https://github.com/phanx-wow/PhanxFont
+## X-Curse-Project-ID: 287705
+## X-WoWI-ID: 24565
+
+## SavedVariables: PhanxFontDB
+
+Libs\LibStub\LibStub.lua
+Libs\CallbackHandler-1.0\CallbackHandler-1.0.lua
+Libs\LibSharedMedia-3.0\LibSharedMedia-3.0.lua
+Libs\PhanxConfig-Dropdown\PhanxConfig-Dropdown.lua
+Libs\PhanxConfig-MediaDropdown\PhanxConfig-MediaDropdown.lua
+Libs\PhanxConfig-Slider\PhanxConfig-Slider.lua
+
+Addon.lua
+Options.lua
