@@ -1,4 +1,4 @@
-## Interface: 80000
+## Interface: 30400
 ## Version: 80000.0
 
 ## Title: PhanxFont
@@ -7,7 +7,7 @@
 ## Notes-esES: Sustitución de fuentes simple.
 ## Notes-esMX: Sustitución de fuentes simple.
 
-## Author: Phanx
+## Author: Phanx. Ported by Exyth
 ## X-Email: addons@phanx.net
 ## X-License: zlib/libpng License
 ## X-Website: https://github.com/phanx-wow/PhanxFont
